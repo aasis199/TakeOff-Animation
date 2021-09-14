@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>TakeOff Animation</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <!-- <audio autoplay>
+            <source src="audio.mp3" type="audio/mp3">
+          Your browser does not support the audio element.
+          </audio> -->
+
+
+        <div class="back">
+            <div class="runway">
+                <div class="stripe"></div>
+            </div>
+        </div>
+        <div class="plane">
+            <img class="aircraft" id="plane" src="plane.png" class="w-100" onclick="myFunction();"> 
+        </div>
+
+
+        <script>
+            var audio = new Audio("audio.mp3");
+            audio.oncanplaythrough = function(){
+            audio.play();
+            };
+
+            $(document).ready(function(){
+              $("#plane").click(function(){
+                audio.play()
+                $(this).addClass('go');
+
+                
+                function removeC(){
+                    $("#plane").removeClass("go");
+                    $("#plane").style.display = 'none';
+                    }
+                    setInterval(removeC,10000);
+                });
+              });
+              
+              
+        </script>
+    </body>
+</html>
+
